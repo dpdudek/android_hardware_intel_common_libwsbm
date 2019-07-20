@@ -14,6 +14,11 @@ LOCAL_SRC_FILES:=          \
    wsbm_userpool.c
 
 LOCAL_CFLAGS += -DHAVE_CONFIG_H
+
+ifeq ($(ASUS_ZENFONE2_LP_BLOBS),true)
+LOCAL_CFLAGS += -DASUS_ZENFONE2_LP_BLOBS
+endif
+
 LOCAL_C_INCLUDES :=            \
    $(LOCAL_PATH)/../       \
    $(TARGET_OUT_HEADERS)/drm \
