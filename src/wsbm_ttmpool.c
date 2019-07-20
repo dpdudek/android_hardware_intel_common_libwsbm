@@ -27,7 +27,7 @@
  *
  **************************************************************************/
 /*
- * Authors: Thomas Hellström <thomas-at-tungstengraphics-dot-com>
+ * Authors: Thomas Hellstrï¿½m <thomas-at-tungstengraphics-dot-com>
  */
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -556,7 +556,9 @@ ttm_pool_ub_create(struct _WsbmBufferPool *pool, unsigned long size, uint32_t pl
     arg.req.placement = placement;
     arg.req.page_alignment = alignment / pageSize;
     arg.req.user_address = (unsigned long)user_ptr;
+#ifndef ASUS_ZENFONE2_LP_BLOBS
     arg.req.fd = fd;
+#endif
 
     DRMRESTARTCOMMANDWRITEREAD(pool->fd, ttmPool->devOffset + TTM_PL_CREATE_UB,
 			       arg, ret);
